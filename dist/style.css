@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 300px;
+    max-height: 700px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    color: #888;
+}
+
+.title {
+    color: #00acee;
+    font-family: "Akaya Telivigala";
+    font-size: 24px;
+    background-color: #e5e5e5;
+    padding: 10px;
+}
+
+.function {
+    margin-top: 20px;
+}
+
+.function__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.function__item {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 20%;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.function__icon {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+p {
+    margin: 20px;
+    font-size: 20px;
+}
+
+.input {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #888;
+    width: 100%;
+}
+
+.wrapInput {
+    margin: 20px;
+}
+
+.btnAdd {
+    background-image: linear-gradient(to right, #00C6FF, #0072ff);
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: 0px solid;
+    color: white;
+    margin: 15px;
+}
