@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Manager Google Sheet",
+  "version": "1.0",
+  "description": "This extension help you manager vocabulary on google sheet",
+  "icons": {
+    "128": "./icons/icon128.png",
+    "48": "./icons/icon48.png",
+    "16": "./icons/icon16.png"
+  },
+  "browser_action": {
+    "default_icon": "./icons/icon16.png",
+    "default_popup": "./dist/popup.html"
+  },
+  "permissions": ["storage"]
+}
