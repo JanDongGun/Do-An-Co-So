@@ -43,6 +43,19 @@ body {
     margin-bottom: 5px;
 }
 
+.contentTab{
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+
+.contentTab.active {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
 p {
     margin: 20px;
     font-size: 20px;
@@ -55,8 +68,11 @@ p {
     border: 1px solid #888;
     width: 100%;
 }
+.input:focus{
+    outline: none;
+}
 
-.wrapInput {
+.add {
     margin: 20px;
 }
 
