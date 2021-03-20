@@ -8,20 +8,22 @@ class Tabs {
         this.tabs.forEach((tab) => {
             tab.addEventListener("click", (e) => {
                 this.changeTabs(e);
-                this.changeContent(e);
             });
         });
     }
 
     changeTabs(e) {
-        this.tabs.forEach((tab) => {
-            tab.classList.remove("active");
+        var btn = e.currentTarget;
+        var tab = btn.dataset.tab;
+        this.tabs.forEach((el) => {
+            el.classList.remove("active");
         });
+        this.content.forEach((el) => {
+            el.classList.remove("active");
+        });
+        document.querySelector("#" + tab).classList.add("active");
+        btn.classList.add("active");
     }
-
-    changeContent(e) {
-
-    }   
 }
 
 export {
