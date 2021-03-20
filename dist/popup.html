@@ -20,31 +20,31 @@
         <div class="title">eSheet</div>
         <div class="function">
             <ul class="function__list">
-                <li class="function__item" data-tab="#list">
+                <li class="function__item" data-tab="list">
                     <i class="far fa-list-alt function__icon "></i>
                     <span class="function__title">List</span>
 
                 </li>
-                <li class="function__item" data-tab="#add">
+                <li class="function__item" data-tab="add">
                     <i class="fas fa-plus function__icon "></i>
                     <span class="function__title">Add</span>
                 </li>
-                <li class="function__item active" data-tab="#lookup">
+                <li class="function__item active" data-tab="lookup">
                     <i class="fas fa-search function__icon "></i>
                     <span class="function__title">Look up</span>
                 </li>
-                <li class="function__item" data-tab="#api">
+                <li class="function__item" data-tab="api">
                     <i class="fas fa-key function__icon "></i>
                     <span class="function__title">API</span>
                 </li>
-                <li class="function__item" data-tab="#sp">
+                <li class="function__item" data-tab="sp">
                     <i class="fas fa-users function__icon "></i>
                     <span class="function__title">Support</span>
                 </li>
 
             </ul>
-        </div>
         <div class="contents">
+        <div class="contentTab" id="list">day la list</div>
         <div class="contentTab" id="add">
             <p>ADD VOCABULARY</p>
 
@@ -59,11 +59,18 @@
             <input type="text" placeholder="Nghĩa tiếng Việt" class="input"><br>
             <button class="btnAdd">Add</button>
         </div>
-    <div class="contentTab" id="list">day la list</div>
-    <div class="contentTab active" id="lookUp">day la look up</div>
-    <div class="contentTab" id="api">day la api</div>
-    <div class="contentTab" id="support">day la support</div>
+    <div class="contentTab active" id="lookup">
+       <div class="lookup-container">
+           <input type="text" autocomplete="off" placeholder="Gõ để tra từ" class="input">
+       </div>
+    </div>
+    <div class="contentTab" id="api">
+        <input type="text" placeholder="Thêm API" class="input"><br>
+        <button class="btnAPI">ChangeAPI</button>
+    </div>
+    <div class="contentTab" id="sp">day la support</div>
         </div>
+    </div>
     </div>
 <script src="./assets/bundle.js"></script>
 </body>
