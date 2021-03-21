@@ -29,11 +29,13 @@ body {
     display: flex;
     align-items: center;
 }
+
 .function__item.active {
     color: #00acee;
 }
+
 .function__item:hover {
-    color: #00acee;   
+    color: #00acee;
 }
 
 .function__item {
@@ -49,7 +51,7 @@ body {
     margin-bottom: 5px;
 }
 
-.contentTab{
+.contentTab {
     width: 100%;
     display: none;
 }
@@ -67,11 +69,12 @@ p {
 .input {
     padding: 10px 15px;
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 20px 0;
     border: 1px solid #888;
     width: 90%;
 }
-.input:focus{
+
+.input:focus {
     outline: none;
 }
 
@@ -87,6 +90,7 @@ p {
     color: white;
     margin: 15px;
 }
+
 .btnAPI {
     background-image: linear-gradient(to right, #00C6FF, #0072ff);
     padding: 10px 20px;
