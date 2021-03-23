@@ -23,8 +23,8 @@
                 <li class="function__item" data-tab="list">
                     <i class="far fa-list-alt function__icon "></i>
                     <span class="function__title">List</span>
-
                 </li>
+
                 <li class="function__item" data-tab="add">
                     <i class="fas fa-plus function__icon "></i>
                     <span class="function__title">Add</span>
@@ -41,38 +41,38 @@
                     <i class="fas fa-users function__icon "></i>
                     <span class="function__title">Support</span>
                 </li>
-
             </ul>
-        <div class="contents">
-        <div class="contentTab" id="list">day la list</div>
-        <div class="contentTab" id="add">
-            <p>ADD VOCABULARY</p>
 
-            <input type="text" placeholder="Thuật ngữ" class="input"><br>
-            <select class="input">
+            <div class="contents">
+                <div class="contentTab" id="list">day la list</div>
+                <div class="contentTab" id="add">
+                    <p>ADD VOCABULARY</p>
+
+                    <input type="text" placeholder="Thuật ngữ" class="input"><br>
+                    <select class="input">
                 <option value="Noun">Noun</option>
                 <option value="Adjective">Adjective</option>
                 <option value="Verb">Verb</option>
                 <option value="Adverb">Adverb</option>
                 <option value="Preposition">Preposition</option>
             </select> <br>
-            <input type="text" placeholder="Nghĩa tiếng Việt" class="input"><br>
-            <button class="btnAdd">Add</button>
+                    <input type="text" placeholder="Nghĩa tiếng Việt" class="input"><br>
+                    <button class="btnAdd">Add</button>
+                </div>
+                <div class="contentTab active" id="lookup">
+                    <div class="lookup-container">
+                        <input type="text" autocomplete="off" placeholder="Gõ để tra từ" class="input">
+                    </div>
+                </div>
+                <div class="contentTab" id="api">
+                    <input type="text" placeholder="Thêm API" class="input"><br>
+                    <button class="btnAPI">ChangeAPI</button>
+                </div>
+                <div class="contentTab" id="sp">day la support</div>
+            </div>
         </div>
-    <div class="contentTab active" id="lookup">
-       <div class="lookup-container">
-           <input type="text" autocomplete="off" placeholder="Gõ để tra từ" class="input">
-       </div>
     </div>
-    <div class="contentTab" id="api">
-        <input type="text" placeholder="Thêm API" class="input"><br>
-        <button class="btnAPI">ChangeAPI</button>
-    </div>
-    <div class="contentTab" id="sp">day la support</div>
-        </div>
-    </div>
-    </div>
-<script src="./assets/bundle.js"></script>
+    <script src="./assets/bundle.js"></script>
 </body>
 
 </html>

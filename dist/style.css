@@ -21,13 +21,29 @@ body {
 }
 
 .function {
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .function__list {
     list-style: none;
     display: flex;
     align-items: center;
+}
+
+ul li::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    background-color: #00acee;
+    transition: all 0.3s ease-in-out;
+}
+
+ul li.active::after {
+    width: 100%;
 }
 
 .function__item.active {
@@ -42,8 +58,10 @@ body {
     display: flex;
     flex-direction: column;
     flex: 0 0 20%;
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
+    position: relative;
+    padding: 10px 0;
 }
 
 .function__icon {
@@ -62,14 +80,14 @@ body {
 }
 
 p {
-    margin: 20px;
     font-size: 20px;
+    margin: 10px;
 }
 
 .input {
     padding: 10px 15px;
     border-radius: 10px;
-    margin: 20px 0;
+    margin: 10px 0;
     border: 1px solid #888;
     width: 90%;
 }
