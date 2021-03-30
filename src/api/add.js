@@ -2,10 +2,7 @@ class Add {
     constructor(urlSheet, form) {
         this.urlSheet = urlSheet;
         this.urlEng = "https://api.dictionaryapi.dev/api/v2/entries/en_US/";
-        this.form = document.querySelector(form);
-        this.inputAdd = this.form.querySelector(".inputAdd");
-        this.category = this.form.querySelector(".categories");
-        this.inputVIE = this.form.querySelector(".inputVIE");
+        this.form = form;
         this.buttonAdd = document.getElementById('btnAdd');
         this.btnSpin = document.getElementById('btnSpin');
         this.btnText = document.querySelector('.btnText');
@@ -30,7 +27,7 @@ class Add {
                 field.classList.remove("is-invalid");
             }
 
-            fetch(this.urlEng.concat(this.inputAdd.value))
+            fetch(this.urlEng + this.form.addInput.value)
                 .then(async res => {
                     let en = "";
                     let ex = "";
@@ -40,9 +37,9 @@ class Add {
                     ex = data[0].meanings[0].definitions[0].example;
 
                     const info = {
-                        Terms: this.inputAdd.value,
-                        Category: this.category.value,
-                        VietnameseMeaning: this.inputVIE.value,
+                        Terms: this.form.addInput.value,
+                        Category: this.form.category.value,
+                        VietnameseMeaning: this.form.VIEinput.value,
                         EnglishMeaning: en,
                         Example: ex
                     };

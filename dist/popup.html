@@ -50,12 +50,12 @@
 
                         <p>ADD VOCABULARY</p>
 
-                        <input type="text" placeholder="Thuật ngữ" class="inputAdd" required minlength="2"><br>
+                        <input type="text" placeholder="Thuật ngữ" id="addInput" class="inputAdd" required minlength="2"><br>
                         <div class="invalid-feedback">
                             Please enter data!
                         </div>
 
-                        <select class="categories">
+                        <select id="category" class="categories">
                         <option value="Noun">Noun</option>
                         <option value="Adjective">Adjective</option>
                         <option value="Verb">Verb</option>
@@ -63,7 +63,7 @@
                         <option value="Preposition">Preposition</option>
                         </select> <br>
 
-                        <input type="text" placeholder="Nghĩa tiếng Việt" class="inputVIE" required minlength="2"><br>
+                        <input type="text" placeholder="Nghĩa tiếng Việt" id="VIEinput" class="inputVIE" required minlength="2"><br>
                         <div class="invalid-feedback">
                             Please enter data!
                         </div>
@@ -88,28 +88,27 @@
                     </form>
                     <div class="search-des">
                         <div class="search-word-title">
-                          <span class="search-word">Create</span>
-                          <button class="btnRemove fas fa-trash"></button>
+                            <span class="search-word">Create</span>
+                            <button class="btnRemove fas fa-trash"></button>
                         </div>
                         <div class="search-word-sound">
-                          (<span class="search-category">Verb</span>)
-                          <i class="fas fa-volume-up search-sound"></i>
+                            (<span class="search-category">Verb</span>)
+                            <i class="fas fa-volume-up search-sound"></i>
                         </div>
-            
+
                         <div class="search-definition">
-                          <div class="search-label">Nghĩa Tiếng Việt</div>
-                          <div class="search-mean">
-                            <span class="vietnameseMeaning">Tạo ra</span>
-                            <i class="fas fa-cog search-edit"></i>
-                          </div>
+                            <div class="search-label">Nghĩa Tiếng Việt</div>
+                            <div class="search-mean">
+                                <span class="vietnameseMeaning">Tạo ra</span>
+                                <i class="fas fa-cog search-edit"></i>
+                            </div>
                         </div>
-            
+
                         <div class="search-definition">
-                          <div class="search-label">Nghĩa Tiếng Anh</div>
-                          <div class="search-mean">
-                            <i class="fas fa-volume-up mean-sound"></i>
-                            <span class="englishMeaning"
-                              >Bring (something) into existence.</span
+                            <div class="search-label">Nghĩa Tiếng Anh</div>
+                            <div class="search-mean">
+                                <i class="fas fa-volume-up mean-sound"></i>
+                                <span class="englishMeaning">Bring (something) into existence.</span
                             >
                             <i class="fas fa-cog search-edit"></i>
                           </div>
@@ -120,26 +119,20 @@
                           <div class="search-mean">
                             <i class="fas fa-volume-up mean-sound"></i>
                             <span class="example"> he created a thirty-acre lake</span>
-                            <i class="fas fa-cog search-edit"></i>
-                          </div>
+                                <i class="fas fa-cog search-edit"></i>
+                            </div>
                         </div>
-                      </div>
-            
-                      <div class="spinner-search">
-                        <span
-                          class="spinner-border spinner-border-sm"
-                          role="status"
-                          aria-hidden="true"
-                          id="btnSpinner"
-                        ></span>
-                      </div>
-            
-                      <div class="alert-search">
+                    </div>
+
+                    <div class="spinner-search">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="btnSpinner"></span>
+                    </div>
+
+                    <div class="alert-search">
                         <div class="alert alert-danger" role="alert">
-                          Có vẻ như <span class="alert-word">Search</span> không có trong
-                          danh sách google sheet. Bấm add để thêm vào.
+                            Có vẻ như <span class="alert-word">Search</span> không có trong danh sách google sheet. Bấm add để thêm vào.
                         </div>
-            
+
                         <button class="btn-submit btn-search-add">
                           <span
                             class="spinner-border spinner-border-sm d-none"
@@ -149,16 +142,16 @@
                           ></span>
                           <span id="btnText">Add</span>
                         </button>
-                      </div>
                     </div>
                 </div>
-                <div class="contentTab" id="api">
-                    <input type="text" placeholder="Thêm API" class="API"><br>
-                    <button class="btnAPI">ChangeAPI</button>
-                </div>
-                <div class="contentTab" id="sp">day la support</div>
             </div>
+            <div class="contentTab" id="api">
+                <input type="text" placeholder="Thêm API" class="API"><br>
+                <button class="btnAPI">ChangeAPI</button>
+            </div>
+            <div class="contentTab" id="sp">day la support</div>
         </div>
+    </div>
     </div>
     <script src="./assets/bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
