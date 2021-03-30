@@ -86,6 +86,71 @@
                             <button type="submit" class="fas fa-search btnSearch"></button>
                         </div>
                     </form>
+                    <div class="search-des">
+                        <div class="search-word-title">
+                          <span class="search-word">Create</span>
+                          <button class="btnRemove fas fa-trash"></button>
+                        </div>
+                        <div class="search-word-sound">
+                          (<span class="search-category">Verb</span>)
+                          <i class="fas fa-volume-up search-sound"></i>
+                        </div>
+            
+                        <div class="search-definition">
+                          <div class="search-label">Nghĩa Tiếng Việt</div>
+                          <div class="search-mean">
+                            <span class="vietnameseMeaning">Tạo ra</span>
+                            <i class="fas fa-cog search-edit"></i>
+                          </div>
+                        </div>
+            
+                        <div class="search-definition">
+                          <div class="search-label">Nghĩa Tiếng Anh</div>
+                          <div class="search-mean">
+                            <i class="fas fa-volume-up mean-sound"></i>
+                            <span class="englishMeaning"
+                              >Bring (something) into existence.</span
+                            >
+                            <i class="fas fa-cog search-edit"></i>
+                          </div>
+                        </div>
+            
+                        <div class="search-definition">
+                          <div class="search-label">Ví dụ</div>
+                          <div class="search-mean">
+                            <i class="fas fa-volume-up mean-sound"></i>
+                            <span class="example"> he created a thirty-acre lake</span>
+                            <i class="fas fa-cog search-edit"></i>
+                          </div>
+                        </div>
+                      </div>
+            
+                      <div class="spinner-search">
+                        <span
+                          class="spinner-border spinner-border-sm"
+                          role="status"
+                          aria-hidden="true"
+                          id="btnSpinner"
+                        ></span>
+                      </div>
+            
+                      <div class="alert-search">
+                        <div class="alert alert-danger" role="alert">
+                          Có vẻ như <span class="alert-word">Search</span> không có trong
+                          danh sách google sheet. Bấm add để thêm vào.
+                        </div>
+            
+                        <button class="btn-submit btn-search-add">
+                          <span
+                            class="spinner-border spinner-border-sm d-none"
+                            role="status"
+                            aria-hidden="true"
+                            id="btnSpinner"
+                          ></span>
+                          <span id="btnText">Add</span>
+                        </button>
+                      </div>
+                    </div>
                 </div>
                 <div class="contentTab" id="api">
                     <input type="text" placeholder="Thêm API" class="API"><br>
