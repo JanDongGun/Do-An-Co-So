@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
@@ -45,24 +45,44 @@
 
             <div class="contents">
                 <div class="contentTab" id="list">day la list</div>
-                <div class="contentTab" id="add">
-                    <p>ADD VOCABULARY</p>
+                <form class="addForm" novalidate>
+                    <div class="contentTab" id="add">
 
-                    <input type="text" placeholder="Thuật ngữ" class="input"><br>
-                    <select class="input">
-                <option value="Noun">Noun</option>
-                <option value="Adjective">Adjective</option>
-                <option value="Verb">Verb</option>
-                <option value="Adverb">Adverb</option>
-                <option value="Preposition">Preposition</option>
-            </select> <br>
-                    <input type="text" placeholder="Nghĩa tiếng Việt" class="input"><br>
-                    <button class="btnAdd">Add</button>
-                </div>
+                        <p>ADD VOCABULARY</p>
+
+                        <input type="text" placeholder="Thuật ngữ" class="inputAdd" required minlength="2"><br>
+                        <div class="invalid-feedback">
+                            Please enter data!
+                        </div>
+
+                        <select class="categories">
+                        <option value="Noun">Noun</option>
+                        <option value="Adjective">Adjective</option>
+                        <option value="Verb">Verb</option>
+                        <option value="Adverb">Adverb</option>
+                        <option value="Preposition">Preposition</option>
+                        </select> <br>
+
+                        <input type="text" placeholder="Nghĩa tiếng Việt" class="inputVIE" required minlength="2"><br>
+                        <div class="invalid-feedback">
+                            Please enter data!
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="btnAdd" type="button">
+                            <span class="spinner-border spinner-border-sm d-none" id="btnSpin" role="status" aria-hidden="true"></span>
+                            <span class="btnText">Add</span>
+                        </button>
+
+                        <div class="alert alert-danger d-none" role="alert" id="er">
+                            Data not found!
+                        </div>
+                    </div>
+                </form>
+
                 <div class="contentTab active" id="lookup">
                     <form class="form-lookup">
                         <div class="lookup-container">
-                            <input type="text" autocomplete="off" placeholder="Gõ để tra từ" class="input" required>
+                            <input type="text" autocomplete="off" placeholder="Gõ để tra từ" class="inputLookUp">
                             <button type="submit" class="fas fa-search btnSearch"></button>
                         </div>
                     </form>
@@ -133,7 +153,7 @@
                     </div>
                 </div>
                 <div class="contentTab" id="api">
-                    <input type="text" placeholder="Thêm API" class="input"><br>
+                    <input type="text" placeholder="Thêm API" class="API"><br>
                     <button class="btnAPI">ChangeAPI</button>
                 </div>
                 <div class="contentTab" id="sp">day la support</div>
@@ -141,6 +161,9 @@
         </div>
     </div>
     <script src="./assets/bundle.js"></script>
+    <script src="../src/api/add.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 </body>
 
 </html>

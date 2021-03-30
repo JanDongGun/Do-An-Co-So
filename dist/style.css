@@ -28,6 +28,7 @@ body {
     list-style: none;
     display: flex;
     align-items: center;
+    padding: 0px;
 }
 
 ul li::after {
@@ -84,7 +85,35 @@ p {
     margin: 10px;
 }
 
-.input {
+.inputAdd {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #888;
+    width: 90%;
+}
+
+input:focus {
+    outline: 0;
+}
+
+.inputLookUp {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #888;
+    width: 90%;
+}
+
+.categories {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #888;
+    width: 90%;
+}
+
+.inputVIE {
     padding: 10px 15px;
     border-radius: 10px;
     margin: 10px 0;
@@ -117,7 +146,6 @@ p {
     color: white;
     margin: 15px;
 }
-
 .form-lookup {
     margin: 0 0 20px 0;
     width: 100%;
@@ -135,13 +163,12 @@ p {
       width: 50px;
       height: 100%;
       right: 0;
-      top: 10%;
+      top: 20%;
       transform: translateX(-20%);
       background: none;
       color: #888;
       border: none;
       font-size: 16px;
-      transition: all 0.3s ease-in-out;
   }
   .btnSearch:hover {
       cursor: pointer;
@@ -198,7 +225,7 @@ p {
       color: black;
        font-size: 14px;
        display: flex;
-       margin-bottom: 20px;
+       margin-bottom: 10px;
    }
 
    .search-sound {
@@ -297,3 +324,36 @@ p {
     color: white;
     margin: 15px;
    }
+.API {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #888;
+    width: 90%;
+}
+
+#btnAdd {
+    background-image: linear-gradient(to right, #00C6FF, #0072ff);
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 0px solid;
+    margin: 15px;
+}
+
+.container {
+    padding: 0px;
+}
+
+#er {
+    padding: 5px;
+    margin: 5px 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+.invalid-feedback {
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    margin: 0px;
+    padding-right: 150px;
+    font-size: 12px;
+}
