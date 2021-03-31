@@ -1,24 +1,21 @@
-const addForm = document.querySelector('.addForm');
-const inputAdd = document.querySelector('.inputAdd');
-const category = document.querySelector('.categories');
-const inputVIE = document.querySelector('.inputVIE');
-const buttonAdd = document.getElementById('btnAdd');
-const btnSpin = document.getElementById('btnSpin');
-const btnText = document.querySelector('.btnText');
-const error = document.getElementById("er");
-
 class Add {
-    constructor(url) {
-        this.url = url;
+    constructor(urlSheet, form) {
+        this.urlSheet = urlSheet;
+        this.urlEng = "https://api.dictionaryapi.dev/api/v2/entries/en_US/";
+        this.form = form;
+        this.buttonAdd = document.getElementById('btnAdd');
+        this.btnSpin = document.getElementById('btnSpin');
+        this.btnText = document.querySelector('.btnText');
+        this.error = document.getElementById("er");
     }
 
     afterSubmit() {
-        addForm.addEventListener("submit", (e) => {
+        this.form.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            if (addForm.checkValidity() === false) {
+            if (this.form.checkValidity() === false) {
                 e.stopPropagation()
-                for (let field of addForm.elements) {
+                for (let field of this.form.elements) {
                     if (!field.checkValidity()) {
                         field.classList.add("is-invalid");
                     }
@@ -26,13 +23,11 @@ class Add {
                 }
             }
 
-            for (let field of addForm.elements) {
+            for (let field of this.form.elements) {
                 field.classList.remove("is-invalid");
             }
 
-            const url2 = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${inputAdd.value}`;
-
-            fetch(url2)
+            fetch(this.urlEng + this.form.addInput.value)
                 .then(async res => {
                     let en = "";
                     let ex = "";
@@ -42,18 +37,18 @@ class Add {
                     ex = data[0].meanings[0].definitions[0].example;
 
                     const info = {
-                        Terms: inputAdd.value,
-                        Category: category.value,
-                        VietnameseMeaning: inputVIE.value,
+                        Terms: this.form.addInput.value,
+                        Category: this.form.category.value,
+                        VietnameseMeaning: this.form.VIEinput.value,
                         EnglishMeaning: en,
                         Example: ex
                     };
 
-                    btnText.innerHTML = "Adding..";
-                    btnSpin.classList.remove("d-none");
-                    btnAdd.disabled = true;
+                    this.btnText.innerHTML = "Adding..";
+                    this.btnSpin.classList.remove("d-none");
+                    this.buttonAdd.disabled = true;
 
-                    fetch(this.url, {
+                    fetch(this.urlSheet, {
                             method: 'POST',
                             cache: 'no-cache',
                             redirect: 'follow',
@@ -61,28 +56,26 @@ class Add {
                         })
                         .then(res => res.json())
                         .then(res => {
-                            addForm.reset();
-                            btnText.innerHTML = "Add";
-                            btnSpin.classList.add("d-none");
-                            btnAdd.disabled = false;
+                            this.form.reset();
+                            this.btnText.innerHTML = "Add";
+                            this.btnSpin.classList.add("d-none");
+                            this.buttonAdd.disabled = false;
                         })
                         .catch(err => {
                             console.log(err);
                         })
                 })
                 .catch(err => {
-                    error.classList.remove("d-none");
+                    this.error.classList.remove("d-none");
                     setTimeout(() => {
-                        error.classList.add("d-none");
-                        btnText.innerHTML = "Add";
-                        btnSpin.classList.add("d-none");
-                        buttonAdd.disabled = false;
+                        this.error.classList.add("d-none");
+                        this.btnText.innerHTML = "Add";
+                        this.btnSpin.classList.add("d-none");
+                        this.buttonAdd.disabled = false;
                     }, 3000);
                 })
         })
     }
 }
 
-const url = "https://script.google.com/macros/s/AKfycbzT7M4Oy1mSuFnSVrp5142ZbWrz1UlSfU9LFEQL5NlPvc0ymUX-ITuLxNjugyXFePfZ/exec";
-const add = new Add(url);
-add.afterSubmit();
+export default Add
