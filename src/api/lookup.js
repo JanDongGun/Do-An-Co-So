@@ -78,11 +78,8 @@ class LookUP {
                 textSearchAdd.textContent = "Add";
                 spinSearchAdd.classList.add("d-none");
               }, 2000);
-
-              console.log(inputAdd.value);
         });
     }
-
 }
 
 export default LookUP
