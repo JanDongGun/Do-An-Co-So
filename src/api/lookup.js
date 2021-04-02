@@ -70,6 +70,7 @@ class LookUP {
 
             const spinSearchAdd = document.querySelector("#btnSpin");
             const textSearchAdd = document.querySelector("#btnText");
+            const addClick = document.querySelector(".add-click");
 
             textSearchAdd.textContent = "Adding...";
             spinSearchAdd.classList.remove("d-none");
@@ -77,6 +78,7 @@ class LookUP {
             setTimeout(() => {
                 textSearchAdd.textContent = "Add";
                 spinSearchAdd.classList.add("d-none");
+                addClick.click();
               }, 2000);
         });
     }
