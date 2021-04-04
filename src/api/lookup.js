@@ -14,6 +14,7 @@ class LookUP {
     }
     init() {
        this.lookupSubmit();
+       console.log("hi");
     }
 
     lookupSubmit() {

@@ -357,3 +357,27 @@ input:focus {
     padding-right: 150px;
     font-size: 12px;
 }
+
+.btnUpdate {
+    background-image: linear-gradient(to right, #00C6FF, #0072ff);
+    padding: 8px 18px;
+    border-radius: 5px;
+    border: 0px solid;
+    color: white;
+    margin: 15px;
+}
+.btnCancel {
+    background-image: linear-gradient(to right, #F2709C, #FF9472);
+    padding: 8px 18px;
+    border-radius: 5px;
+    border: 0px solid;
+    color: white;
+    margin: 15px;
+}
+.inputUpdateSearch {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #888;
+    width: 90%;
+}
