@@ -85,9 +85,19 @@ class LookUP {
     }
 
     searchUpdate() {
-        const searchMean = document.querySelectorAll(".search-mean");
         const searchEdit = document.querySelectorAll(".search-edit");
-        const searchUpdate = document.querySelectorAll(".search-update");
+
+        searchEdit.forEach((edit) => {
+            edit.addEventListener("click", (e) => {
+                this.changeUpdate(e);
+            });
+        });
+    }
+
+    changeUpdate(e) {
+        var btnEdit = e.currentTarget;
+        var update = btnEdit.dataset.edit;
+        document.querySelector("#" + update).classList.remove("d-none");
     }
 }
 
