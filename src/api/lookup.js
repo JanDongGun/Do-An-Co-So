@@ -14,7 +14,7 @@ class LookUP {
     }
     init() {
        this.lookupSubmit();
-       console.log("hi");
+       this.searchUpdate();
     }
 
     lookupSubmit() {
@@ -82,6 +82,12 @@ class LookUP {
                 addClick.click();
               }, 2000);
         });
+    }
+
+    searchUpdate() {
+        const searchMean = document.querySelectorAll(".search-mean");
+        const searchEdit = document.querySelectorAll(".search-edit");
+        const searchUpdate = document.querySelectorAll(".search-update");
     }
 }
 
