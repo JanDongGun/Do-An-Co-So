@@ -98,49 +98,49 @@
 
                         <div class="search-definition">
                             <div class="search-label">Nghĩa Tiếng Việt</div>
-                            <div class="search-mean">
+                            <div class="search-mean" id="vnmMeaningSearch">
                                 <span class="vietnameseMeaning">Tạo ra</span>
                                 <i class="fas fa-cog search-edit" data-edit="vnmMeaning"></i>
                             </div>
                             <div class="search-update d-none" id="vnmMeaning">
-                                <input type="text" class="inputUpdateSearch">
+                                <input type="text" class="inputUpdateSearch" id="vnmMeaningInput" placeholder="type data you want to update">
                                 <div>
-                                    <button class="btnUpdate">Update</button>
-                                    <button class="btnCancel">Cancel</button>
+                                    <button class="btnCancel" data-edit="vnmMeaning">Cancel</button>
+                                    <button class="btnUpdate" data-edit="vnmMeaning">Update</button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="search-definition">
                             <div class="search-label">Nghĩa Tiếng Anh</div>
-                            <div class="search-mean">
+                            <div class="search-mean" id="engMeaningSearch">
                                 <i class="fas fa-volume-up mean-sound"></i>
                                 <span class="englishMeaning">Bring (something) into existence.</span
                             >
                             <i class="fas fa-cog search-edit" data-edit="engMeaning"></i>
                           </div>
                           <div class="search-update d-none" id="engMeaning">
-                            <input type="text" class="inputUpdateSearch">
+                            <input type="text" class="inputUpdateSearch" id="engMeaningInput" placeholder="type data you want to update">
                             <div>
-                                <button class="btnUpdate">Update</button>
-                                <button class="btnCancel">Cancel</button>
+                                <button class="btnCancel" data-edit="engMeaning">Cancel</button>
+                                <button class="btnUpdate" data-edit="engMeaning">Update</button>
                             </div>
                         </div>
                         </div>
             
                         <div class="search-definition">
                           <div class="search-label">Ví dụ</div>
-                          <div class="search-mean">
+                          <div class="search-mean" id="expSearch">
                             <i class="fas fa-volume-up mean-sound"></i>
                             <span class="example"> he created a thirty-acre lake</span>
                                 <i class="fas fa-cog search-edit" data-edit="exp"></i>
                             </div>
                         </div>
                         <div class="search-update d-none" id="exp">
-                            <input type="text" class="inputUpdateSearch">
+                            <input type="text" class="inputUpdateSearch" id="expInput" placeholder="type data you want to update">
                             <div>
-                                <button class="btnUpdate">Update</button>
-                                <button class="btnCancel">Cancel</button>
+                                <button class="btnCancel" data-edit="exp">Cancel</button>
+                                <button class="btnUpdate" data-edit="exp">Update</button>
                             </div>
                         </div>
                       </div>
