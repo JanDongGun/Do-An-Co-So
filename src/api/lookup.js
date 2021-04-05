@@ -86,18 +86,55 @@ class LookUP {
 
     searchUpdate() {
         const searchEdit = document.querySelectorAll(".search-edit");
+        const btnCancel = document.querySelectorAll(".btnCancel");
+        const btnUpdate = document.querySelectorAll(".btnUpdate");
 
         searchEdit.forEach((edit) => {
             edit.addEventListener("click", (e) => {
                 this.changeUpdate(e);
             });
         });
+
+        btnCancel.forEach((cancel) => {
+            cancel.addEventListener("click", (e) => {
+                this.cancelUpdate(e);
+            });
+        });
+
+        btnUpdate.forEach((update) => {
+            update.addEventListener("click", (e) => {
+                this.dataUpdate(e);
+            })
+        })
     }
 
     changeUpdate(e) {
-        var btnEdit = e.currentTarget;
-        var update = btnEdit.dataset.edit;
+        let btnEdit = e.currentTarget;
+        let update = btnEdit.dataset.edit;
         document.querySelector("#" + update).classList.remove("d-none");
+        document.querySelector("#" + update + "Search").classList.add("d-none");
+    }
+
+    cancelUpdate(e) {
+        let btnCancel = e.currentTarget;
+        let update = btnCancel.dataset.edit;
+        document.querySelector("#" + update).classList.add("d-none");
+        document.querySelector("#" + update + "Search").classList.remove("d-none");
+    }
+
+    dataUpdate(e) {
+        let btnUpdate = e.currentTarget;
+        let update = btnUpdate.dataset.edit;
+        const inputUpdate = document.querySelector("#" + update + "Input");
+        
+        btnUpdate.textContent = "Updating...";
+
+        setTimeout(() => {
+            btnUpdate.textContent = "Update";
+            document.querySelector("#" + update).classList.add("d-none");
+            document.querySelector("#" + update + "Search").classList.remove("d-none");
+            console.log(inputUpdate.value);
+          }, 2000);
     }
 }
 
