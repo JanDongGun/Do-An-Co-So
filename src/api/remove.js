@@ -1,16 +1,24 @@
+class Remove {
+    constructor(url) {
+        this.removeBtn = document.querySelector(".btnRemove");
+        this.word = document.querySelector(".search-word");
+        this.url = url;
+    }
 
-const removeBtn = document.querySelector(".btnRemove");
-const word = document.querySelector(".search-word");
-const url = "https://script.google.com/macros/s/AKfycbwGPsyjpmLlpW-36ouvVSslGQgc73EJz30qDo4w8PZonTwnwsNxr78g-o52y4ZdEcU1/exec"
-
-function removeItem() {
-    fetch(url + `?func=remove&item=${word.textContent}`, {
-        method: 'POST',
-        cache: 'no-cache',
-        redirect: 'follow',
-        body: JSON.stringify({})
-    })
-    .then(res => res.json())
+    removeItem(){
+        this.removeBtn.addEventListener("click", ()=>{
+            fetch(this.url + `?func=remove&item=${this.word.textContent}`, {
+                method: 'POST',
+                cache: 'no-cache',
+                redirect: 'follow',
+                body: JSON.stringify({})
+            })
+            .then(res => res.json())
+            .catch(err => {
+                console.log(err);
+            })
+        })
+    }
 }
 
-removeBtn.addEventListener("click", removeItem);
+export default Remove
