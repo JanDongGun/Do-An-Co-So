@@ -1,26 +1,32 @@
 class Voice {
     constructor(url) {
         this.voiceBtn = document.getElementById("voice");
-        this.url = "https://api.dictionaryapi.dev/api/v2/entries/en_US/";
-        this.word = document.querySelector(".search-word"); 
+        this.engVoice = document.getElementById("engVoice");
+        this.exVoice = document.getElementById("exVoice")
+        this.word = document.querySelector(".search-word");
+        this.engMean = document.querySelector(".englishMeaning") 
+        this.example = document.querySelector(".example")
     }
-
+    
     playAudio(){
-        this.voiceBtn.addEventListener("click", ()=>{
-            fetch(this.url + this.word.textContent)
-                .then(async res => {
-                    const data = await res.json();
-                    const mp3 = data[0].phonetics[0].audio
 
-                    const audio = new Audio(mp3);
-                    audio.play();
-                })
-                .then(res => res.json)
-                .catch(err => {
-                    console.log(err);
-                })
-            }
+        const msg = new SpeechSynthesisUtterance(); 
+
+        this.voiceBtn.addEventListener("click", ()=>{
+            msg.text = this.word.textContent;
+            window.speechSynthesis.speak(msg)
+        }
         )
+
+        this.engVoice.addEventListener("click", ()=>{
+            msg.text = this.engMean.textContent;
+            window.speechSynthesis.speak(msg)
+        })
+
+        this.exVoice.addEventListener("click", ()=>{
+            msg.text = this.example.textContent;
+            window.speechSynthesis.speak(msg)
+        })
     }
 }
 

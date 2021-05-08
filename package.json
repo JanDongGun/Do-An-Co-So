@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^10.16.7",
     "webpack-dev-server": "^3.11.2"
   }
 }

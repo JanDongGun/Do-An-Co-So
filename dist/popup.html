@@ -43,6 +43,15 @@
                 </li>
             </ul>
 
+            <div id="confirm">
+                <div id="box">
+                    <p class="fas fa-trash" id="iconTrash"></p>
+                    <p id="contentRemove"></p>
+                    <button id="confirmBtn">Remove</button>
+                    <button id="cancelBtn">Cancel</button>
+                </div>
+            </div>
+
             <div class="contents">
                 <div class="contentTab" id="list">day la list</div>
                 <form class="addForm" novalidate>
@@ -89,7 +98,10 @@
                     <div class="search-des d-none">
                         <div class="search-word-title">
                             <span class="search-word">Create</span>
-                            <button class="btnRemove fas fa-trash"></button>
+
+                            <button class="btnRemove fas fa-trash" id="removeBtn"></button>
+                            <div class="spinner-border text-info d-none" role="status" id="spinnerRemove"></div>
+
                         </div>
                         <div class="search-word-sound">
                             <span class="search-category">Verb</span>
@@ -114,7 +126,7 @@
                         <div class="search-definition">
                             <div class="search-label">Nghĩa Tiếng Anh</div>
                             <div class="search-mean" id="engMeaningSearch">
-                                <i class="fas fa-volume-up mean-sound"></i>
+                                <i id="engVoice" class="fas fa-volume-up mean-sound"></i>
                                 <span class="englishMeaning">Bring (something) into existence.</span
                             >
                             <i class="fas fa-cog search-edit" data-edit="engMeaning"></i>
@@ -131,7 +143,7 @@
                         <div class="search-definition">
                           <div class="search-label">Ví dụ</div>
                           <div class="search-mean" id="expSearch">
-                            <i class="fas fa-volume-up mean-sound"></i>
+                            <i id="exVoice" class="fas fa-volume-up mean-sound"></i>
                             <span class="example"> he created a thirty-acre lake</span>
                                 <i class="fas fa-cog search-edit" data-edit="exp"></i>
                             </div>
@@ -143,18 +155,17 @@
                                 <button class="btnUpdate" data-edit="exp">Update</button>
                             </div>
                         </div>
-                      </div>
-            
-                      <div class="spinner-search d-none">
-                        <span
-                          class="spinner-border spinner-border-sm"
-                          role="status"
-                          aria-hidden="true"
-                          id="btnSpinner"
-                        ></span>
-                      </div>
-            
-                      <div class="alert-search d-none">
+                    </div>
+
+                    <div class="spinner-search d-none">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="btnSpinner"></span>
+                    </div>
+
+                    <div class="alert alert-success d-none" role="alert" id="alertRemove">
+                        Removed word successfully!
+                    </div>
+
+                    <div class="alert-search d-none">
                         <div class="alert alert-danger" role="alert">
                             Có vẻ như <span class="alert-word">Search</span> không có trong danh sách google sheet. Bấm add để thêm vào.
                         </div>

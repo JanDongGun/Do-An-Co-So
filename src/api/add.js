@@ -27,52 +27,71 @@ class Add {
                 field.classList.remove("is-invalid");
             }
 
-            fetch(this.urlEng + this.form.addInput.value)
+            fetch(this.urlSheet)
                 .then(async res => {
-                    let en = "";
-                    let ex = "";
+                    const datas = await res.json()
+                    let n = 0
+                    datas[0].data.forEach(element => {
+                        if (element.Terms.toLowerCase() == this.form.addInput.value.toLowerCase()) {
+                            n += 1
+                        }
+                    });
 
-                    const data = await res.json();
-                    en = data[0].meanings[0].definitions[0].definition;
-                    ex = data[0].meanings[0].definitions[0].example;
+                    if (n == 0) {
+                        fetch(this.urlEng + this.form.addInput.value)
+                            .then(async res => {
+                                let en = "";
+                                let ex = "";
 
-                    const info = {
-                        Terms: this.form.addInput.value,
-                        Category: this.form.category.value,
-                        VietnameseMeaning: this.form.VIEinput.value,
-                        EnglishMeaning: en,
-                        Example: ex
-                    };
+                                const data = await res.json();
+                                en = data[0].meanings[0].definitions[0].definition;
+                                ex = data[0].meanings[0].definitions[0].example;
 
-                    this.btnText.innerHTML = "Adding..";
-                    this.btnSpin.classList.remove("d-none");
-                    this.buttonAdd.disabled = true;
+                                const info = {
+                                    Terms: this.form.addInput.value,
+                                    Category: this.form.category.value,
+                                    VietnameseMeaning: this.form.VIEinput.value,
+                                    EnglishMeaning: en,
+                                    Example: ex
+                                };
 
-                    fetch(this.urlSheet, {
-                            method: 'POST',
-                            cache: 'no-cache',
-                            redirect: 'follow',
-                            body: JSON.stringify(info)
-                        })
-                        .then(res => res.json())
-                        .then(res => {
-                            this.form.reset();
-                            this.btnText.innerHTML = "Add";
-                            this.btnSpin.classList.add("d-none");
-                            this.buttonAdd.disabled = false;
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        })
-                })
-                .catch(err => {
-                    this.error.classList.remove("d-none");
-                    setTimeout(() => {
-                        this.error.classList.add("d-none");
-                        this.btnText.innerHTML = "Add";
-                        this.btnSpin.classList.add("d-none");
-                        this.buttonAdd.disabled = false;
-                    }, 3000);
+                                this.btnText.innerHTML = "Adding..";
+                                this.btnSpin.classList.remove("d-none");
+                                this.buttonAdd.disabled = true;
+
+                                fetch(this.urlSheet, {
+                                        method: 'POST',
+                                        cache: 'no-cache',
+                                        redirect: 'follow',
+                                        body: JSON.stringify(info)
+                                    })
+                                    .then(res => res.json())
+                                    .then(res => {
+                                        this.form.reset();
+                                        this.btnText.innerHTML = "Add";
+                                        this.btnSpin.classList.add("d-none");
+                                        this.buttonAdd.disabled = false;
+                                    })
+                                    .catch(err => {
+                                        console.log(err);
+                                    })
+                            })
+                            .catch(err => {
+                                this.error.classList.remove("d-none");
+                                setTimeout(() => {
+                                    this.error.classList.add("d-none");
+                                    this.btnText.innerHTML = "Add";
+                                    this.btnSpin.classList.add("d-none");
+                                    this.buttonAdd.disabled = false;
+                                }, 3000);
+                            })
+                    } else {
+                        this.error.innerHTML = "This word already exists!"
+                        this.error.classList.remove("d-none")
+                        setTimeout(() => {
+                            this.error.classList.add("d-none")
+                        }, 3000)
+                    }
                 })
         })
     }
