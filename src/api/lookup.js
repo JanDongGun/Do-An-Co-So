@@ -125,15 +125,38 @@ class LookUP {
     dataUpdate(e) {
         let btnUpdate = e.currentTarget;
         let update = btnUpdate.dataset.edit;
+        let valueInput = "";
         const inputUpdate = document.querySelector("#" + update + "Input");
+
+        if(update == "vnmMeaning"){
+            valueInput = this.searchWord.textContent + "|" + inputUpdate.value + "|" + this.englishMeaning.textContent + "|" + this.example.textContent; 
+        }else if (update == "engMeaning"){
+            valueInput = this.searchWord.textContent + "|" + this.vietnameseMeaning.textContent + "|" + inputUpdate.value + "|" + this.example.textContent;
+        }
+        else if (update == "exp") {
+            valueInput = this.searchWord.textContent + "|" + this.vietnameseMeaning.textContent + "|" + this.englishMeaning.textContent + "|" + inputUpdate.value;
+        }
         
         btnUpdate.textContent = "Updating...";
 
         setTimeout(() => {
+            fetch(this.url + `?func=edit&item=${valueInput}`, {
+                method: 'POST',
+                cache: 'no-cache',
+                redirect: 'follow',
+                body: JSON.stringify({})
+            })
+            .then(res => res.json())
+            .catch(err => {
+                console.log(err);
+            });
+
+
             btnUpdate.textContent = "Update";
             document.querySelector("#" + update).classList.add("d-none");
             document.querySelector("#" + update + "Search").classList.remove("d-none");
-            console.log(inputUpdate.value);
+
+            console.log(valueInput.split("|"));
           }, 2000);
     }
 }
