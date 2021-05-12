@@ -7,7 +7,7 @@ import Voice from "../src/api/voice";
 const tabs = new Tabs(document.querySelector(".function"));
 tabs.init();
 
-const url = "https://script.google.com/macros/s/AKfycbzZF6duxqz4ZwjO7YHH-FtE8a9vhpE_iY04wTwqDLyXgI8qS54QAYUy4Bi-I92CnfXe/exec";
+const url = "https://script.google.com/macros/s/AKfycbwQfuMGfjuPrC_Sj7wNWNlBQrZkWPbiJn8T74csZzi4tJhMKiNW6im2O-rMxmHSayDV/exec";
 const add = new Add(url, document.querySelector(".addForm"));
 add.afterSubmit();
 
