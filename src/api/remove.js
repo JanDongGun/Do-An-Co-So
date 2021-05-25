@@ -1,5 +1,5 @@
 class Remove {
-    constructor(url) {
+    constructor() {
         this.removeBtn = document.getElementById("removeBtn");
         this.word = document.querySelector(".search-word");
         this.spinner = document.getElementById("spinnerRemove")
@@ -9,7 +9,8 @@ class Remove {
         this.confirmBtn = document.getElementById("confirmBtn")
         this.content = document.getElementById("contentRemove")
         this.cancelBtn = document.getElementById("cancelBtn")
-        this.url = url;
+        this.valueAPI = document.querySelector(".API")
+        this.inputLookup = document.querySelector(".inputLookUp")
     }
 
     removeItem() {
@@ -29,7 +30,7 @@ class Remove {
                 this.removeBtn.classList.add("d-none")
                 this.spinner.classList.remove("d-none")
 
-                fetch(this.url + `?func=remove&item=${this.word.textContent}`, {
+                fetch(this.valueAPI.value + `?func=remove&item=${this.word.textContent}`, {
                         method: 'POST',
                         cache: 'no-cache',
                         redirect: 'follow',
@@ -41,6 +42,7 @@ class Remove {
                         this.removeBtn.classList.remove("d-none")
                         this.spinner.classList.add("d-none")
                         this.alertRemove.classList.remove("d-none")
+                        this.inputLookup.value = ""
                     })
                     .then(res => {
                         setTimeout(() => {

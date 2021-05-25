@@ -1,6 +1,5 @@
 class Add {
-    constructor(urlSheet, form) {
-        this.urlSheet = urlSheet;
+    constructor(form) {
         this.urlEng = "https://api.dictionaryapi.dev/api/v2/entries/en_US/";
         this.form = form;
         this.buttonAdd = document.getElementById('btnAdd');
@@ -27,7 +26,9 @@ class Add {
                 field.classList.remove("is-invalid");
             }
 
-            fetch(this.urlSheet)
+            const valueAPI = document.querySelector(".API").value
+
+            fetch(valueAPI)
                 .then(async res => {
                     const datas = await res.json()
                     let n = 0
@@ -59,7 +60,7 @@ class Add {
                                 this.btnSpin.classList.remove("d-none");
                                 this.buttonAdd.disabled = true;
 
-                                fetch(this.urlSheet, {
+                                fetch(valueAPI, {
                                         method: 'POST',
                                         cache: 'no-cache',
                                         redirect: 'follow',
@@ -94,10 +95,6 @@ class Add {
                     }
                 })
         })
-
-    }
-
-    fetchAPI() {
 
     }
 

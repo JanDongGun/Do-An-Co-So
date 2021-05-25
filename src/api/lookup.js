@@ -1,7 +1,6 @@
 class LookUP {
-    constructor(form, url) {
+    constructor(form) {
         this.form = form;
-        this.url = url;
         this.searchDes = document.querySelector(".search-des");
         this.spinnerSearch = document.querySelector(".spinner-search");
         this.alertSearch = document.querySelector(".alert-search");
@@ -12,67 +11,69 @@ class LookUP {
         this.example = document.querySelector(".example");
         this.inputLookup = document.querySelector(".inputLookUp");
         this.worddisplay = document.getElementById("wordisplay");
-        this.btnAdd = document.getElementById("btnAdd");
+        this.valueAPI = document.querySelector(".API")
     }
     init() {
         this.lookupSubmit();
         this.searchUpdate();
-        this.displayWord();
+        // this.displayWord();
     }
 
-    displayWord() {
-        let words = []
+    // displayWord() {
+    //     let words = []
 
-        fetch(this.url)
-            .then(async res => {
-                const data = await res.json();
-                words = data[0].data
-            })
-            .then(() => {
-                for (let i = 0; i < words.length; i++) {
-                    this.worddisplay.innerHTML += `<p class="wordd" id="worddd">${words[i].Terms}</p>`
-                }
-            })
+    //     const valueAPI = document.querySelector(".API").value
 
-        this.btnAdd.addEventListener("click", () => {
-            setTimeout(() => {
-                fetch(this.url)
-                    .then(async res => {
-                        words = []
-                        const data = await res.json();
-                        words = data[0].data
-                    })
-                    .then(() => {
-                        for (var con in this.worddisplay.children) {
-                            this.worddisplay.removeChild(con);
-                        }
-                    })
-                    .then(() => {
-                        for (let i = 0; i < words.length; i++) {
-                            this.worddisplay.innerHTML += `<p class="wordd" id="worddd">${words[i].Terms}</p>`
-                        }
-                    })
-            }, 6000)
-        })
+    //     fetch(valueAPI)
+    //         .then(async res => {
+    //             const data = await res.json();
+    //             words = data[0].data
+    //         })
+    //         .then(() => {
+    //             for (let i = 0; i < words.length; i++) {
+    //                 this.worddisplay.innerHTML += `<p class="wordd" id="worddd">${words[i].Terms}</p>`
+    //             }
+    //         })
 
-        this.inputLookup.addEventListener("keyup", () => {
-            const child = this.worddisplay.children;
-            if (this.inputLookup.value != "") {
-                this.worddisplay.style.display = "block"
-                for (let i = 0; i < child.length; i++) {
-                    const a = child[i].textContent;
-                    if (a.toLowerCase().indexOf(this.inputLookup.value.toLowerCase()) > -1) {
-                        child[i].style.display = "block";
-                    } else {
-                        child[i].style.display = "none";
-                    }
-                }
-            } else {
-                this.worddisplay.style.display = "none"
-            }
+    //     this.btnAdd.addEventListener("click", () => {
+    //         setTimeout(() => {
+    //             fetch(valueAPI)
+    //                 .then(async res => {
+    //                     words = []
+    //                     const data = await res.json();
+    //                     words = data[0].data
+    //                 })
+    //                 .then(() => {
+    //                     for (var con in this.worddisplay.children) {
+    //                         this.worddisplay.removeChild(con);
+    //                     }
+    //                 })
+    //                 .then(() => {
+    //                     for (let i = 0; i < words.length; i++) {
+    //                         this.worddisplay.innerHTML += `<p class="wordd" id="worddd">${words[i].Terms}</p>`
+    //                     }
+    //                 })
+    //         }, 6000)
+    //     })
 
-        })
-    }
+    //     this.inputLookup.addEventListener("keyup", () => {
+    //         const child = this.worddisplay.children;
+    //         if (this.inputLookup.value != "") {
+    //             this.worddisplay.style.display = "block"
+    //             for (let i = 0; i < child.length; i++) {
+    //                 const a = child[i].textContent;
+    //                 if (a.toLowerCase().indexOf(this.inputLookup.value.toLowerCase()) > -1) {
+    //                     child[i].style.display = "block";
+    //                 } else {
+    //                     child[i].style.display = "none";
+    //                 }
+    //             }
+    //         } else {
+    //             this.worddisplay.style.display = "none"
+    //         }
+
+    //     })
+    // }
 
 
     lookupSubmit() {
@@ -80,7 +81,7 @@ class LookUP {
             e.preventDefault();
             const inputSearch = this.inputLookup.value;
             this.spinnerSearch.classList.remove("d-none");
-            fetch(this.url)
+            fetch(this.valueAPI.value)
                 .then((d) => d.json())
                 .then((d) => {
                     this.resetUI(d[0].data, inputSearch);
@@ -197,7 +198,7 @@ class LookUP {
 
         btnUpdate.textContent = "Updating...";
 
-        fetch(this.url + `?func=edit&item=${valueInput}`, {
+        fetch(this.valueAPI.value + `?func=edit&item=${valueInput}`, {
                 method: 'POST',
                 mode: 'no-cors', // no-cors, *cors, same-origin
                 cache: 'no-cache',
@@ -212,7 +213,7 @@ class LookUP {
         setTimeout(() => {
 
             const inputSearch = this.searchWord.textContent;
-            fetch(this.url)
+            fetch(this.valueAPI.value)
                 .then((d) => d.json())
                 .then((d) => {
                     this.resetUI(d[0].data, inputSearch);
