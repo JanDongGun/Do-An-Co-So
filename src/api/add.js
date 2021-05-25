@@ -94,7 +94,13 @@ class Add {
                     }
                 })
         })
+
     }
+
+    fetchAPI() {
+
+    }
+
 }
 
 export default Add
