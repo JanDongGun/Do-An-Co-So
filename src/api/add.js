@@ -6,6 +6,7 @@ class Add {
         this.btnSpin = document.getElementById('btnSpin');
         this.btnText = document.querySelector('.btnText');
         this.error = document.getElementById("er");
+        this.valueAPI = document.querySelector(".API")
     }
 
     afterSubmit() {
@@ -26,9 +27,7 @@ class Add {
                 field.classList.remove("is-invalid");
             }
 
-            const valueAPI = document.querySelector(".API").value
-
-            fetch(valueAPI)
+            fetch(this.valueAPI.value)
                 .then(async res => {
                     const datas = await res.json()
                     let n = 0
@@ -60,7 +59,7 @@ class Add {
                                 this.btnSpin.classList.remove("d-none");
                                 this.buttonAdd.disabled = true;
 
-                                fetch(valueAPI, {
+                                fetch(this.valueAPI.value, {
                                         method: 'POST',
                                         cache: 'no-cache',
                                         redirect: 'follow',
