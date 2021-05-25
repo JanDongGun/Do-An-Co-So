@@ -72,10 +72,8 @@ class LookUP {
             }
 
         })
-
-
-
     }
+
 
     lookupSubmit() {
         this.form.addEventListener("submit", (e) => {
@@ -91,6 +89,7 @@ class LookUP {
                 .catch((error) => {
                     console.log(error);
                 });
+
         });
     }
 
@@ -189,34 +188,46 @@ class LookUP {
         const inputUpdate = document.querySelector("#" + update + "Input");
 
         if (update == "vnmMeaning") {
-            valueInput = this.searchWord.textContent + "|" + inputUpdate.value + "|" + this.englishMeaning.textContent + "|" + this.example.textContent;
+            valueInput = this.searchWord.textContent + ":" + this.searchCategory.textContent + ":" + inputUpdate.value + ":" + this.englishMeaning.textContent + ":" + this.example.textContent;
         } else if (update == "engMeaning") {
-            valueInput = this.searchWord.textContent + "|" + this.vietnameseMeaning.textContent + "|" + inputUpdate.value + "|" + this.example.textContent;
+            valueInput = this.searchWord.textContent + ":" + this.searchCategory.textContent + ":" + this.vietnameseMeaning.textContent + ":" + inputUpdate.value + ":" + this.example.textContent;
         } else if (update == "exp") {
-            valueInput = this.searchWord.textContent + "|" + this.vietnameseMeaning.textContent + "|" + this.englishMeaning.textContent + "|" + inputUpdate.value;
+            valueInput = this.searchWord.textContent + ":" + this.searchCategory.textContent + ":" + this.vietnameseMeaning.textContent + ":" + this.englishMeaning.textContent + ":" + inputUpdate.value;
         }
 
         btnUpdate.textContent = "Updating...";
 
-        setTimeout(() => {
-            fetch(this.url + `?func=edit&item=${valueInput}`, {
-                    method: 'POST',
-                    cache: 'no-cache',
-                    redirect: 'follow',
-                    body: JSON.stringify({})
-                })
-                .then(res => res.json())
-                .catch(err => {
-                    console.log(err);
-                });
+        fetch(this.url + `?func=edit&item=${valueInput}`, {
+                method: 'POST',
+                mode: 'no-cors', // no-cors, *cors, same-origin
+                cache: 'no-cache',
+                redirect: 'follow',
+                body: JSON.stringify({})
+            })
+            .then(res => res.json())
+            .catch(err => {
+                console.log(err);
+            });
 
+        setTimeout(() => {
+
+            const inputSearch = this.searchWord.textContent;
+            fetch(this.url)
+                .then((d) => d.json())
+                .then((d) => {
+                    this.resetUI(d[0].data, inputSearch);
+                    this.form.reset();
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
 
             btnUpdate.textContent = "Update";
             document.querySelector("#" + update).classList.add("d-none");
             document.querySelector("#" + update + "Search").classList.remove("d-none");
-
-            console.log(valueInput.split("|"));
         }, 2000);
+
+
     }
 }
 
