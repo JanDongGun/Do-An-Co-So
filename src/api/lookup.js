@@ -16,65 +16,8 @@ class LookUP {
     init() {
         this.lookupSubmit();
         this.searchUpdate();
-        // this.displayWord();
+
     }
-
-    // displayWord() {
-    //     let words = []
-
-    //     const valueAPI = document.querySelector(".API").value
-
-    //     fetch(valueAPI)
-    //         .then(async res => {
-    //             const data = await res.json();
-    //             words = data[0].data
-    //         })
-    //         .then(() => {
-    //             for (let i = 0; i < words.length; i++) {
-    //                 this.worddisplay.innerHTML += `<p class="wordd" id="worddd">${words[i].Terms}</p>`
-    //             }
-    //         })
-
-    //     this.btnAdd.addEventListener("click", () => {
-    //         setTimeout(() => {
-    //             fetch(valueAPI)
-    //                 .then(async res => {
-    //                     words = []
-    //                     const data = await res.json();
-    //                     words = data[0].data
-    //                 })
-    //                 .then(() => {
-    //                     for (var con in this.worddisplay.children) {
-    //                         this.worddisplay.removeChild(con);
-    //                     }
-    //                 })
-    //                 .then(() => {
-    //                     for (let i = 0; i < words.length; i++) {
-    //                         this.worddisplay.innerHTML += `<p class="wordd" id="worddd">${words[i].Terms}</p>`
-    //                     }
-    //                 })
-    //         }, 6000)
-    //     })
-
-    //     this.inputLookup.addEventListener("keyup", () => {
-    //         const child = this.worddisplay.children;
-    //         if (this.inputLookup.value != "") {
-    //             this.worddisplay.style.display = "block"
-    //             for (let i = 0; i < child.length; i++) {
-    //                 const a = child[i].textContent;
-    //                 if (a.toLowerCase().indexOf(this.inputLookup.value.toLowerCase()) > -1) {
-    //                     child[i].style.display = "block";
-    //                 } else {
-    //                     child[i].style.display = "none";
-    //                 }
-    //             }
-    //         } else {
-    //             this.worddisplay.style.display = "none"
-    //         }
-
-    //     })
-    // }
-
 
     lookupSubmit() {
         this.form.addEventListener("submit", (e) => {

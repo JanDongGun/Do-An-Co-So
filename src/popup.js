@@ -4,13 +4,17 @@ import LookUP from "../src/api/lookup";
 import Remove from "../src/api/remove";
 import Voice from "../src/api/voice";
 import ChangeAPI from "../src/api/change-api"
-
+import ListWord from "../src/api/listword.js";
 
 const tabs = new Tabs(document.querySelector(".function"));
 tabs.init();
 
 const changeAPI = new ChangeAPI()
 changeAPI.setAPI()
+
+const listWord = new ListWord()
+listWord.getItem()
+listWord.removeItem()
 
 const add = new Add(document.querySelector(".addForm"));
 add.afterSubmit();
