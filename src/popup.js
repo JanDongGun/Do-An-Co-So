@@ -9,12 +9,12 @@ import ListWord from "../src/api/listword.js";
 const tabs = new Tabs(document.querySelector(".function"));
 tabs.init();
 
-const changeAPI = new ChangeAPI()
-changeAPI.setAPI()
+const changeAPI = new ChangeAPI();
+changeAPI.setAPI();
 
-const listWord = new ListWord()
-listWord.getItem()
-listWord.removeItem()
+const listWord = new ListWord();
+listWord.getItem();
+listWord.removeItem();
 
 const add = new Add(document.querySelector(".addForm"));
 add.afterSubmit();

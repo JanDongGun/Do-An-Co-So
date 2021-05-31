@@ -458,11 +458,3 @@ input:focus {
     font-family: "Roboto", sans-serif;
 }
 
-.wordd {
-    display: none;
-    margin-left: 16px;
-    text-align: left;
-    color: black;
-    font-family: 'Roboto';
-    font-weight: 500;
-}

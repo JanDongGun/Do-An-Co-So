@@ -1,34 +1,38 @@
 class ListWord {
-    constructor() {
-        this.list = document.querySelector(".listWord")
+  constructor() {
+    this.list = document.querySelector(".listWord");
+  }
+
+  getItem() {
+    const listWord = localStorage.length;
+    for (let i = 0; i < listWord; i++) {
+      const getValue = localStorage.getItem(localStorage.key(i));
+      this.list.innerHTML += `
+        <li class="Word">
+                ${getValue}
+                <button class="checkButton"><i class='fas fa-check'></i></button>
+        </li>
+        `;
     }
+  }
 
-    getItem() {
-        const listWord = JSON.parse(localStorage.getItem("list"))
-        listWord.forEach(element => {
-            this.list.innerHTML += `<li class="remove">${element}</li>`
-        });
-    }
-
-    removeItem() {
-        const arr = document.querySelector(".listWord")
-        arr.addEventListener('click', (e) => {
-            if (e.target.classList.contains('remove')) {
-                let todoObject;
-                const getData = localStorage.getItem("list");
-                todoObject = JSON.parse(getData);
-
-                todoObject.forEach((item) => {
-                    if (e.target.parentElement.textContent.includes(item)) {
-                        todoObject.splice(todoObject.indexOf(item), 1);
-                        localStorage.setItem("list", JSON.stringify(todoObject));
-                    };
-                })
-                e.target.parentElement.remove();
-            }
-        })
-
-    }
+  removeItem() {
+    const input = document.querySelector(".inputAdd");
+    this.list.addEventListener("click", (e)=>{
+        if (e.target.classList.contains("checkButton")) {
+            input.value = e.target.parentElement.innerText
+            for (let i = 0; i < localStorage.length; i++) {
+                const getValue = localStorage.getItem(localStorage.key(i));
+                if (getValue == e.target.parentElement.innerText){
+                    localStorage.removeItem(getValue);
+                    e.target.parentElement.remove();
+                }
+              }
+            
+        }
+    })
+    
+  }
 }
 
-export default ListWord
+export default ListWord;

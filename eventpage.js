@@ -4,11 +4,9 @@ const itemMenu = {
     "contexts": ["selection"]
 }
 
-chrome.contextMenus.create(itemMenu)
+chrome.contextMenus.create(itemMenu);
 
 
-const arr = []
 chrome.contextMenus.onClicked.addListener((clickWord) => {
-    arr.push(clickWord.selectionText)
-    localStorage.setItem("list", JSON.stringify(arr))
-})
+    localStorage.setItem(clickWord.selectionText, clickWord.selectionText)
+});
