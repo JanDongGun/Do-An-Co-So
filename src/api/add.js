@@ -1,3 +1,4 @@
+import ListWord from "./listword";
 class Add {
     constructor(form) {
         this.urlEng = "https://api.dictionaryapi.dev/api/v2/entries/en_US/";
@@ -32,7 +33,7 @@ class Add {
                     const datas = await res.json()
                     let n = 0
                     datas[0].data.forEach(element => {
-                        if (element.Terms.toLowerCase() == this.form.addInput.value.toLowerCase()) {
+                        if (element.Terms.toLowerCase().trim() == this.form.addInput.value.toLowerCase().trim()) {
                             n += 1
                         }
                     });
@@ -48,7 +49,7 @@ class Add {
                                 ex = data[0].meanings[0].definitions[0].example;
 
                                 const info = {
-                                    Terms: this.form.addInput.value,
+                                    Terms: this.form.addInput.value.charAt(0).toUpperCase() + this.form.addInput.value.slice(1).toLowerCase(),
                                     Category: this.form.category.value,
                                     VietnameseMeaning: this.form.VIEinput.value,
                                     EnglishMeaning: en,
@@ -67,13 +68,33 @@ class Add {
                                     })
                                     .then(res => res.json())
                                     .then(res => {
-                                        this.form.reset();
                                         this.btnText.innerHTML = "Add";
                                         this.btnSpin.classList.add("d-none");
                                         this.buttonAdd.disabled = false;
                                     })
+                                    .then(()=>{
+                                        const data = JSON.parse(localStorage.getItem("list"));
+                                        const list = document.querySelector(".listWord");
+                                        const inputAdd = document.querySelector(".inputAdd");
+                                        const listWord = new ListWord();
+                                        if (data.length == 0){
+                                            this.form.reset();
+                                        }
+                                        data.forEach(element => {
+                                            if (element == inputAdd.value.trim()) {
+                                                data.splice(data.indexOf(element), 1);
+                                                localStorage.setItem("list", JSON.stringify(data));
+                                                this.form.reset();
+                                                list.innerHTML = "";
+                                                listWord.getItem();
+                                            }
+                                        });
+                                        
+                                        
+                                    })
                                     .catch(err => {
                                         console.log(err);
+                                        this.form.reset();
                                     })
                             })
                             .catch(err => {
@@ -90,7 +111,8 @@ class Add {
                         this.error.classList.remove("d-none")
                         setTimeout(() => {
                             this.error.classList.add("d-none")
-                        }, 3000)
+                            this.form.reset();
+                        }, 2000)
                     }
                 })
         })

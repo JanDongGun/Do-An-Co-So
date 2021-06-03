@@ -1,38 +1,56 @@
 class ListWord {
-  constructor() {
-    this.list = document.querySelector(".listWord");
-  }
-
-  getItem() {
-    const listWord = localStorage.length;
-    for (let i = 0; i < listWord; i++) {
-      const getValue = localStorage.getItem(localStorage.key(i));
-      this.list.innerHTML += `
-        <li class="Word">
-                ${getValue}
-                <button class="checkButton"><i class='fas fa-check'></i></button>
-        </li>
-        `;
+    constructor() {
+        this.list = document.querySelector(".listWord");
     }
-  }
 
-  removeItem() {
-    const input = document.querySelector(".inputAdd");
-    this.list.addEventListener("click", (e)=>{
-        if (e.target.classList.contains("checkButton")) {
-            input.value = e.target.parentElement.innerText
-            for (let i = 0; i < localStorage.length; i++) {
-                const getValue = localStorage.getItem(localStorage.key(i));
-                if (getValue == e.target.parentElement.innerText){
-                    localStorage.removeItem(getValue);
-                    e.target.parentElement.remove();
-                }
-              }
-            
+    getItem() {
+        let arr;
+        const data = localStorage.getItem("list");
+        if (data){
+            arr = JSON.parse(data)
+            arr.forEach((element) => {
+                this.list.innerHTML += `
+                        <li class="Word">
+                                ${element}
+                                <button class="checkButton"><i class='fas fa-check'></i></button>
+                                <button class="removeButton"><i class='fas fa-trash'></i></button>
+                        </li>
+                        `;
+                });
         }
-    })
-    
-  }
+        else{
+            arr = []
+        }
+        
+    }
+
+    removeItem() {
+        const inputAdd = document.querySelector(".inputAdd");
+        const addClick = document.querySelector(".add-click");
+        
+        this.list.addEventListener("click", (e)=>{
+            if (e.target.classList.contains("checkButton")) {
+                inputAdd.value = e.target.parentElement.innerText;
+                addClick.click(); 
+            }
+
+            if (e.target.classList.contains("removeButton")) {
+      
+                const todoObject = JSON.parse(localStorage.getItem("list"));
+
+                todoObject.forEach(element => {
+                    if (e.target.parentElement.textContent.includes(element)) {
+                        todoObject.splice(todoObject.indexOf(element), 1);
+                        localStorage.setItem("list", JSON.stringify(todoObject));
+                    }
+                });
+                e.target.parentElement.remove();
+            }
+
+        })
+    }
 }
 
-export default ListWord;
+
+export default ListWord
+

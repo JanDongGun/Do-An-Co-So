@@ -14,7 +14,7 @@
     },
 
     "background": {
-        "scripts": ["eventpage.js"],
+        "scripts": ["src/eventpage.js"],
         "persistent": false
     },
 

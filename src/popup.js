@@ -3,8 +3,8 @@ import Add from "../src/api/add";
 import LookUP from "../src/api/lookup";
 import Remove from "../src/api/remove";
 import Voice from "../src/api/voice";
-import ChangeAPI from "../src/api/change-api"
-import ListWord from "../src/api/listword.js";
+import ChangeAPI from "../src/api/change-api";
+import ListWord from "../src/api/listword";
 
 const tabs = new Tabs(document.querySelector(".function"));
 tabs.init();
