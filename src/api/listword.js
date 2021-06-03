@@ -12,8 +12,8 @@ class ListWord {
                 this.list.innerHTML += `
                         <li class="Word">
                                 ${element}
-                                <button class="checkButton"><i class='fas fa-check'></i></button>
-                                <button class="removeButton"><i class='fas fa-trash'></i></button>
+                                <button class="btnList checkButton"><i class='fas fa-check'></i></button>
+                                <button class="btnList removeButton"><i class='fas fa-trash'></i></button>
                         </li>
                         `;
                 });
