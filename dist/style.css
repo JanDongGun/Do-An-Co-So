@@ -493,3 +493,7 @@ input:focus {
     justify-content: space-between;
 }
 
+.Word:hover {
+    color: #0dcaf0;
+}
+
