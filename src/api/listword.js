@@ -12,8 +12,10 @@ class ListWord {
                 this.list.innerHTML += `
                         <li class="Word">
                                 ${element}
-                                <button class="btnList checkButton"><i class='fas fa-check'></i></button>
-                                <button class="btnList removeButton"><i class='fas fa-trash'></i></button>
+                                <span>
+                                <button class="btnList checkButton"><i class="fas fa-check-square"></i></button>
+                                <button class="btnList removeButton"><i class="fas fa-trash"></i></button>
+                                </span>
                         </li>
                         `;
                 });
@@ -30,7 +32,7 @@ class ListWord {
         
         this.list.addEventListener("click", (e)=>{
             if (e.target.classList.contains("checkButton")) {
-                inputAdd.value = e.target.parentElement.innerText;
+                inputAdd.value = e.target.parentElement.parentElement.innerText;
                 addClick.click(); 
             }
 
@@ -39,12 +41,12 @@ class ListWord {
                 const todoObject = JSON.parse(localStorage.getItem("list"));
 
                 todoObject.forEach(element => {
-                    if (e.target.parentElement.textContent.includes(element)) {
+                    if (e.target.parentElement.parentElement.textContent.includes(element)) {
                         todoObject.splice(todoObject.indexOf(element), 1);
                         localStorage.setItem("list", JSON.stringify(todoObject));
                     }
                 });
-                e.target.parentElement.remove();
+                e.target.parentElement.parentElement.remove();
             }
 
         })

@@ -48,8 +48,10 @@ class Add {
                                 en = data[0].meanings[0].definitions[0].definition;
                                 ex = data[0].meanings[0].definitions[0].example;
 
+                                const termWord = this.form.addInput.value.charAt(0).toUpperCase() + this.form.addInput.value.slice(1).toLowerCase()
+
                                 const info = {
-                                    Terms: this.form.addInput.value.charAt(0).toUpperCase() + this.form.addInput.value.slice(1).toLowerCase(),
+                                    Terms: termWord.trim(),
                                     Category: this.form.category.value,
                                     VietnameseMeaning: this.form.VIEinput.value,
                                     EnglishMeaning: en,

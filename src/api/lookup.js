@@ -22,7 +22,7 @@ class LookUP {
     lookupSubmit() {
         this.form.addEventListener("submit", (e) => {
             e.preventDefault();
-            const inputSearch = this.inputLookup.value;
+            const inputSearch = this.inputLookup.value.trim();
             this.spinnerSearch.classList.remove("d-none");
             fetch(this.valueAPI.value)
                 .then((d) => d.json())

@@ -458,6 +458,38 @@ input:focus {
     font-family: "Roboto", sans-serif;
 }
 
+
+
+.btnList {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+}
+
+.checkButton{
+    position: relative;
+    margin-right: 1px;
+    top: 1px;
+    right: 2px
+}
+
 .btnList i {
     pointer-events: none;
+    size: 5px;
 }
+
+.btnList:hover {
+    color: #00C6FF;
+}
+
+.listWord {
+    text-align: start;
+}
+
+.Word{
+    margin: 10px 14px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
