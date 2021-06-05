@@ -59,15 +59,12 @@
                     </ul>
                 </div>
 
-                <form class="addForm" novalidate>
+                <form class="addForm" >
                     <div class="contentTab" id="add">
 
                         <p>ADD VOCABULARY</p>
 
                         <input type="text" placeholder="Thuật ngữ" id="addInput" class="inputAdd" required minlength="2"><br>
-                        <div class="invalid-feedback">
-                            Please enter data!
-                        </div>
 
                         <select id="category" class="categories">
                         <option value="Noun">Noun</option>
@@ -78,9 +75,6 @@
                         </select> <br>
 
                         <input type="text" placeholder="Nghĩa tiếng Việt" id="VIEinput" class="inputVIE" required minlength="2"><br>
-                        <div class="invalid-feedback">
-                            Please enter data!
-                        </div>
 
                         <button type="submit" class="btn btn-primary" id="btnAdd" type="button">
                             <span class="spinner-border spinner-border-sm d-none" id="btnSpin" role="status" aria-hidden="true"></span>

@@ -16,16 +16,6 @@ class Add {
 
             if (this.form.checkValidity() === false) {
                 e.stopPropagation()
-                for (let field of this.form.elements) {
-                    if (!field.checkValidity()) {
-                        field.classList.add("is-invalid");
-                    }
-                    return;
-                }
-            }
-
-            for (let field of this.form.elements) {
-                field.classList.remove("is-invalid");
             }
 
             fetch(this.valueAPI.value)
