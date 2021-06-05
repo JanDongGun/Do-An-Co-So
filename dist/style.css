@@ -491,9 +491,11 @@ input:focus {
     margin: 10px 14px 0px 0px;
     display: flex;
     justify-content: space-between;
+    font-weight: 600;
 }
 
 .Word:hover {
     color: #0dcaf0;
+    
 }
 
