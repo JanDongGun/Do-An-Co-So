@@ -7,6 +7,7 @@ class Add {
         this.btnSpin = document.getElementById('btnSpin');
         this.btnText = document.querySelector('.btnText');
         this.error = document.getElementById("er");
+        this.notifyAdd = document.getElementById("notifyAdd");
         this.valueAPI = document.querySelector(".API")
     }
 
@@ -65,6 +66,14 @@ class Add {
                                         this.buttonAdd.disabled = false;
                                     })
                                     .then(()=>{
+                                        this.notifyAdd.classList.remove("d-none");
+                                        this.notifyAdd.innerHTML = "Added Word successfully!"
+
+                                        setTimeout(()=>{
+                                            this.notifyAdd.classList.add("d-none");
+                                        }, 2000)
+                                    })
+                                    .then(()=>{
                                         const data = JSON.parse(localStorage.getItem("list"));
                                         const list = document.querySelector(".listWord");
                                         const inputAdd = document.querySelector(".inputAdd");
@@ -91,6 +100,7 @@ class Add {
                             })
                             .catch(err => {
                                 this.error.classList.remove("d-none");
+                                this.form.reset();
                                 setTimeout(() => {
                                     this.error.classList.add("d-none");
                                     this.btnText.innerHTML = "Add";

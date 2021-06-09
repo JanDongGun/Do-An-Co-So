@@ -19,6 +19,8 @@ class LookUP {
 
     }
 
+
+
     lookupSubmit() {
         this.form.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -91,6 +93,7 @@ class LookUP {
         const searchEdit = document.querySelectorAll(".search-edit");
         const btnCancel = document.querySelectorAll(".btnCancel");
         const btnUpdate = document.querySelectorAll(".btnUpdate");
+        const lookupClear = document.getElementById("lookupClear");
 
         searchEdit.forEach((edit) => {
             edit.addEventListener("click", (e) => {
@@ -108,6 +111,10 @@ class LookUP {
             update.addEventListener("click", (e) => {
                 this.dataUpdate(e);
             })
+        })
+
+        lookupClear.addEventListener("click", ()=>{
+            this.searchDes.classList.add("d-none");
         })
     }
 
