@@ -64,9 +64,9 @@
 
                         <p>ADD VOCABULARY</p>
 
-                        <input type="text" placeholder="Thuật ngữ" id="addInput" class="inputAdd" required minlength="2"><br>
+                        <input type="text" placeholder="Term" id="addInput" class="inputAdd input" required minlength="2"><br>
 
-                        <select id="category" class="categories">
+                        <select id="category" class="categories input">
                         <option value="Noun">Noun</option>
                         <option value="Adjective">Adjective</option>
                         <option value="Verb">Verb</option>
@@ -74,14 +74,13 @@
                         <option value="Preposition">Preposition</option>
                         </select> <br>
 
-                        <input type="text" placeholder="Nghĩa tiếng Việt" id="VIEinput" class="inputVIE" required minlength="2"><br>
-
-                        <button type="submit" class="btn btn-primary" id="btnAdd" type="button">
+                        <input type="text" placeholder="Vietnamese Meaning" id="VIEinput" class="inputVIE input" required minlength="2"><br>
+                        <button type="submit" class=" btnBlue" id="btnAdd" type="button">
                             <span class="spinner-border spinner-border-sm d-none" id="btnSpin" role="status" aria-hidden="true"></span>
                             <span class="btnText">Add</span>
                         </button>
 
-                        <div class="alert alert-danger d-none" role="alert" id="er">
+                        <div class="alert alert-danger d-none alertBlock" role="alert" id="er">
                             Data not found!
                         </div>
                     </div>
@@ -90,7 +89,7 @@
                 <div class="contentTab active" id="lookup">
                     <form class="form-lookup">
                         <div class="lookup-container">
-                            <input type="text" autocomplete="off" placeholder="Gõ để tra từ" class="inputLookUp">
+                            <input type="text" autocomplete="off" placeholder="Search" class="inputLookUp input">
                             <button type="submit" class="fas fa-search btnSearch"></button>
                         </div>
                     </form>
@@ -114,7 +113,7 @@
                                 <i class="fas fa-cog search-edit" data-edit="vnmMeaning"></i>
                             </div>
                             <div class="search-update d-none" id="vnmMeaning">
-                                <input type="text" class="inputUpdateSearch" id="vnmMeaningInput" placeholder="type data you want to update">
+                                <input type="text" class="inputUpdateSearch input" id="vnmMeaningInput" placeholder="type data you want to update">
                                 <div>
                                     <button class="btnCancel" data-edit="vnmMeaning">Cancel</button>
                                     <button class="btnUpdate" data-edit="vnmMeaning">Update</button>
@@ -131,7 +130,7 @@
                             <i class="fas fa-cog search-edit" data-edit="engMeaning"></i>
                           </div>
                           <div class="search-update d-none" id="engMeaning">
-                            <input type="text" class="inputUpdateSearch" id="engMeaningInput" placeholder="type data you want to update">
+                            <input type="text" class="inputUpdateSearch input" id="engMeaningInput" placeholder="type data you want to update">
                             <div>
                                 <button class="btnCancel" data-edit="engMeaning">Cancel</button>
                                 <button class="btnUpdate" data-edit="engMeaning">Update</button>
@@ -148,7 +147,7 @@
                             </div>
                         </div>
                         <div class="search-update d-none" id="exp">
-                            <input type="text" class="inputUpdateSearch" id="expInput" placeholder="type data you want to update">
+                            <input type="text" class="inputUpdateSearch input" id="expInput" placeholder="type data you want to update">
                             <div>
                                 <button class="btnCancel" data-edit="exp">Cancel</button>
                                 <button class="btnUpdate" data-edit="exp">Update</button>
@@ -164,16 +163,16 @@
 
                     </div>
 
-                    <div class="alert alert-success d-none" role="alert" id="alertRemove">
+                    <div class="alert alert-success d-none alertBlock" role="alert" id="alertRemove">
                         Removed word successfully!
                     </div>
 
                     <div class="alert-search d-none">
-                        <div class="alert alert-danger" role="alert">
+                        <div class="alert alert-danger alertBlock" role="alert">
                             Có vẻ như <span class="alert-word">Search</span> không có trong danh sách google sheet. Bấm add để thêm vào.
                         </div>
 
-                        <button class="btn-submit btn-search-add">
+                        <button class="btn-submit btn-search-add btnBlue">
                           <span
                             class="spinner-border spinner-border-sm d-none"
                             role="status"
@@ -184,18 +183,32 @@
                         </button>
                     </div>
                 </div>
-            </div>
-            <div class="contentTab" id="api">
-                <input type="text" placeholder="Thêm API" class="API"><br>
-                <button class="btnAPI">
-                    <span class="spinner-border spinner-border-sm d-none" id="btnSpinAPI" role="status" aria-hidden="true"></span>
-                    <span class="btnTextAPI">Add API</span>
-                </button>
-                <div class="alert alert-success d-none" role="alert" id="alertAddAPI">
-                    Added API successfully!
+                <div class="contentTab" id="api">
+                    <input type="text" placeholder="API" class="API input">
+                    <button class="btnAPI btnBlue">
+                        <span class="spinner-border spinner-border-sm d-none" id="btnSpinAPI" role="status" aria-hidden="true"></span>
+                        <span class="btnTextAPI">Add API</span>
+                    </button>
+                    <div class="alert alert-success d-none alertBlock" role="alert" id="alertAddAPI">
+                        Added API successfully!
+                    </div>
+                </div>
+                <div class="contentTab" id="sp">
+                    <p>CONTACT US</p>
+                    <div class="sp">
+                        <div class="sp-block">
+                            <a href="https://jandonggun.github.io/eSheetExtensionGuide/" target="_blank"><i class="fas fa-cogs"></i></a>
+                        </div>
+                        <div class="sp-block">
+                            <a href="https://www.facebook.com/gak.sital.1" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        </div>
+                        <div class="sp-block">
+                            <a href="https://github.com/JanDongGun/Do-An-Co-So" target="_blank"><i class="fab fa-github-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="contentTab" id="sp"></div>
+
         </div>
     </div>
     </div>
