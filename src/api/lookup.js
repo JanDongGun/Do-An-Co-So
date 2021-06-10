@@ -65,6 +65,10 @@ class LookUP {
             alertWord.textContent = input;
 
             this.addWord(alertWord.textContent);
+
+            setTimeout(()=>{
+                this.alertSearch.classList.add("d-none");
+            }, 3000)
         }
     }
 
